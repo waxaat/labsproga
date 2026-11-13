@@ -10,3 +10,4 @@ void bubble_sort(int arr[], int n) {
     }
 }
 //Bubble sort implementation
+// Time complexity: 0(n^2)
