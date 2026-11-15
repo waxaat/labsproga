@@ -30,3 +30,29 @@
 - Команда `git diff mybranch master` показала разницу между ветками: удаление `file1.txt` и добавление `file2.txt` при переходе от `mybranch` к `master`.
 
 ![Сравнение веток mybranch и master](screenshots/07.png)
+- **Пункты 3–7:** До `git add` команда `git diff` показывает добавление `main()` в `sort.c`, а `git diff --staged` пуст. После `git add sort.c` ситуация меняется на противоположную: `git diff` пуст, а `git diff --staged` отображает индексированные изменения.
+- **Пункты 8–14:** После удаления элемента массива в `sort.c` файл отобразился в `git status` дважды: в индексе (`{4, 2, 0}`) и в неиндексированных изменениях (`{4, 2}`). Команда `git diff` показала разницу между рабочей копией и индексом, а `git diff --staged` — между индексом и последним коммитом. Команда `git restore --staged sort.c` отменила индексацию.
+
+![Разница между git diff и git diff --staged](screenshots/08.png)
+
+![Двойной статус файла и git restore --staged](screenshots/09.png)
+
+- **Пункты 15–23:** Изменения зафиксированы коммитом в `mybranch`. После добавления `printf("hello git\n");` в `main()` команда `git restore sort.c` откатила неиндексированные правки к состоянию последнего коммита, а обновлённая ветка `mybranch` отправлена на GitHub.
+
+![Коммит в mybranch и добавление printf](screenshots/10.png)
+
+![Откат изменений через git restore sort.c](screenshots/11.png)
+
+![Отправка ветки mybranch на удалённый репозиторий](screenshots/12.png)
+
+- **Пункты 1–9:** В `master` создан файл `greeting.txt` со словом `hello`, затем создана и активирована ветка `feature/uppercase`, в которой содержимое изменено на `HELLO` и закоммичено.
+
+![Создание greeting.txt и переход на feature/uppercase](screenshots/13.png)
+
+![Коммит в feature/uppercase и граф веток](screenshots/14.png)
+
+- **Пункты 10–19:** После возврата на `master` файл `greeting.txt` содержал `hello`. После сравнения (`git diff master feature/uppercase`) выполнено слияние `git merge feature/uppercase` в режиме `Fast-forward`, содержимое `greeting.txt` обновилось на `HELLO`, а ветка `feature/uppercase` удалена. Далее ветка `mybranch` влита в `master`, итоговый граф и отчёт отправлены на GitHub.
+
+![Слияние веток feature/uppercase и mybranch в master](screenshots/15.png)
+
+![Итоговый граф коммитов после слияния](screenshots/16.png)
