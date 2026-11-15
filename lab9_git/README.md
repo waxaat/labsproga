@@ -28,4 +28,5 @@
 ![Расхождение веток на графе](screenshots/06.png)
 - После переключения на `mybranch` файл `file2.txt` пропал из рабочей директории (так как он существует только в `master`), зато появился `file1.txt`.
 - Команда `git diff mybranch master` показала разницу между ветками: удаление `file1.txt` и добавление `file2.txt` при переходе от `mybranch` к `master`.
+
 ![Сравнение веток mybranch и master](screenshots/07.png)
