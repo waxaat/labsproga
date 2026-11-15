@@ -17,3 +17,16 @@
 - Затем второе изменение было добавлено в индекс, закоммичено и отправлено на GitHub
 ![Частичный коммит и журнал (часть 1)](screenshots/03_commit.png)
 ![Частичный коммит и журнал (часть 2)](screenshots/04.png)
+- Создана ветка `mybranch` (`git branch mybranch`), в списке веток (`git branch`) активная ветка отмечена звездочкой `*`.
+- После `git switch mybranch` вывод `git status` изменился: вместо `On branch master` теперь отображается `On branch mybranch`.
+
+![Создание и переключение на mybranch](screenshots/05.png)
+- В ветке `mybranch` создан и закоммичен `file1.txt`. Граф `git log --oneline --graph` показал указатель `mybranch` на новом коммите.
+- После возврата в `master` команда `git log --oneline --graph` перестала показывать коммит из `mybranch`.
+- После создания и коммита `file2.txt` в `master` команда `git log --oneline --graph --all` показала расхождение веток: у `master` и `mybranch` теперь разные коммиты.
+
+![Расхождение веток на графе](screenshots/06.png)
+- После переключения на `mybranch` файл `file2.txt` пропал из рабочей директории (так как он существует только в `master`), зато появился `file1.txt`.
+- Команда `git diff mybranch master` показала разницу между ветками: удаление `file1.txt` и добавление `file2.txt` при переходе от `mybranch` к `master`.
+
+![Сравнение веток mybranch и master](screenshots/07.png)
